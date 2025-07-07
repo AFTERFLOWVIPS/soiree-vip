@@ -2,66 +2,69 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Soirée V.I.P</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #111;
-      color: white;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: gold;
-    }
-    form {
-      max-width: 400px;
-      margin: auto;
-      background-color: #222;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: gold;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .instructions {
-      margin-top: 30px;
-      font-size: 14px;
-    }
-    a {
-      color: lightblue;
-      text-decoration: underline;
-    }
-  </style>
+  <title>Afterflow V.I.P.S</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Soirée V.I.P</h1>
 
-  <form action="merci.html" method="get">
+  <header>
+    <h1 class="logo">AFTERFLOW V.I.P.S</h1>
+  </header>
+
+  <section class="counter">⚠️ Il ne reste que <span id="places">12</span> places !</section>
+
+  <form id="registration-form">
     <input type="text" name="prenom" placeholder="Prénom" required />
     <input type="text" name="nom" placeholder="Nom" required />
     <input type="email" name="email" placeholder="Email" required />
     <button type="submit">Je m’inscris</button>
   </form>
 
-  <div class="instructions">
-    <p>⚠️ Pour valider votre inscription, veuillez envoyer 30€ via PayPal à :</p>
-    <p><a href="https://www.paypal.me/AFTERFLOWVIPS/30" target="_blank">paypal.me/AFTERFLOWVIPS/30</a></p>
-    <p><strong>IMPORTANT :</strong> Mettez votre <strong>nom et prénom</strong> en message lors du paiement.</p>
-  </div>
+  <section class="instructions">
+    <p>✅ Après votre inscription, envoyez <strong>30 €</strong> via PayPal :</p>
+    <a href="https://www.paypal.me/AFTERFLOWVIPS/30" target="_blank">paypal.me/AFTERFLOWVIPS/30</a>
+    <div id="qrcode"></div>
+    <p>📌 Mettez votre <strong>nom et prénom</strong> dans le message lors du paiement.</p>
+    <p>📩 Vous recevrez une confirmation par mail dans les 24h.</p>
+  </section>
+
+  <section class="conditions">
+    <h2>Conditions</h2>
+    <ul>
+      <li>+18 ans uniquement</li>
+      <li>Pas de remboursement</li>
+      <li>Carte d’identité exigée à l’entrée</li>
+      <li>Contact : afterflow.vips@gmail.com</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>📸 <a href="https://instagram.com/afterflow_vip" target="_blank">@afterflow_vip</a></p>
+    <p>👻 <a href="https://www.snapchat.com/add/afterflow-events" target="_blank">afterflow-events</a></p>
+  </footer>
+
+  <audio id="sound-effect" src="https://www.soundjay.com/buttons/sounds/button-29.mp3" preload="auto"></audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script>
+    const sound = document.getElementById("sound-effect");
+
+    document.getElementById("registration-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      sound.play();
+      setTimeout(() => {
+        window.location.href = "merci.html";
+      }, 1200);
+    });
+
+    const qr = new QRious({
+      element: document.getElementById('qrcode'),
+      value: 'https://www.paypal.me/AFTERFLOWVIPS/30',
+      size: 160
+    });
+
+    document.getElementById("places").textContent = 12;
+  </script>
 </body>
 </html>
