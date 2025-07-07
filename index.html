@@ -1,83 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Soirée V.I.P</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fafafa;
-      color: #333;
-      margin: 0;
-      padding: 20px;
       text-align: center;
-    }
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background-color: #111;
+      color: white;
+      padding: 20px;
     }
     h1 {
-      color: #e91e63;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      color: #0070ba;
-      font-size: 22px;
+      font-size: 36px;
       margin-bottom: 20px;
+      color: gold;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
     }
     input {
-      width: 90%;
-      padding: 12px;
+      width: 100%;
+      padding: 10px;
       margin: 10px 0;
-      font-size: 16px;
-      border: 1px solid #ccc;
       border-radius: 5px;
+      border: none;
     }
     button {
-      background-color: #0070ba;
-      color: white;
+      padding: 10px 20px;
+      background-color: gold;
       border: none;
-      padding: 15px 30px;
-      font-size: 16px;
-      border-radius: 8px;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
-      margin-top: 15px;
     }
-    button:hover {
-      background-color: #005c99;
+    .instructions {
+      margin-top: 30px;
+      font-size: 14px;
     }
-    p {
-      font-size: 15px;
-      color: #666;
+    a {
+      color: lightblue;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <h1>Soirée V.I.P</h1>
 
-  <div class="container">
-    <h1>Soirée V.I.P</h1>
-    <h2>Inscription en ligne - 30 €</h2>
-    <p>Remplis ce formulaire pour réserver ta place</p>
+  <form action="merci.html" method="get">
+    <input type="text" name="prenom" placeholder="Prénom" required>
+    <input type="text" name="nom" placeholder="Nom" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Je m’inscris</button>
+  </form>
 
-    <form action="https://formsubmit.co/afterflow.vips@gmail.com" method="POST">
-      <input type="text" name="Prénom" placeholder="Prénom" required><br>
-      <input type="text" name="Nom" placeholder="Nom" required><br>
-      <input type="email" name="Email" placeholder="Adresse e-mail" required><br>
-
-      <!-- Message automatique de confirmation -->
-      <input type="hidden" name="_autoresponse" value="Merci ! Ton inscription à la Soirée V.I.P est confirmée.">
-
-      <!-- Redirection vers la page merci.html -->
-      <input type="hidden" name="_next" value="merci.html">
-
-      <button type="submit">Valider</button>
-    </form>
+  <div class="instructions">
+    <p>⚠️ Pour valider votre inscription, veuillez envoyer 30€ via PayPal à :</p>
+    <p><a href="https://www.paypal.me/AFTERFLOWVIPS/30" target="_blank">paypal.me/AFTERFLOWVIPS/30</a></p>
+    <p><strong>IMPORTANT :</strong> Mettez votre <strong>nom et prénom</strong> en message lors du paiement.</p>
   </div>
-
 </body>
 </html>
